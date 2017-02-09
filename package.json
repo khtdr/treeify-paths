@@ -1,6 +1,6 @@
 {
   "name": "filesToTree",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "list of file names becomes a tree of file descriptions",
   "main": "filesToTree.js",
   "scripts": {
