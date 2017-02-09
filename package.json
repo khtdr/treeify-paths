@@ -1,7 +1,7 @@
 {
-  "name": "fileToTree",
-  "version": "1.0.0",
-  "description": "list of files names becomes a tree of files",
+  "name": "filesToTree",
+  "version": "1.0.1",
+  "description": "list of file names becomes a tree of file descriptions",
   "main": "filesToTree.js",
   "scripts": {
     "pretest": "tsc lib.ts && mv lib.js filesToTree.js",
@@ -9,7 +9,7 @@
   },
   "repository":"github.com:khtdr/filesToTree.git",
   "author": "oh kay",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "mocha": "^3.2.0",
     "typescript": "^2.1.6"
