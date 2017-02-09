@@ -1,0 +1,17 @@
+{
+  "name": "fileToTree",
+  "version": "1.0.0",
+  "description": "list of files names becomes a tree of files",
+  "main": "filesToTree.js",
+  "scripts": {
+    "pretest": "tsc lib.ts && mv lib.js filesToTree.js",
+    "test": "mocha tests.js"
+  },
+  "repository":"github.com:khtdr/filesToTree.git",
+  "author": "oh kay",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^3.2.0",
+    "typescript": "^2.1.6"
+  }
+}
