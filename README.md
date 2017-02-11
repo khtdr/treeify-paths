@@ -27,6 +27,7 @@ Useful when converting a list of file names into a nested UL/LI tree. Nice for s
 Install it with NPM:
 ```bash
 npm install --save treeify-paths
+```
 
 ```javascript
 import treeifyPaths from 'treeify-paths';
