@@ -1,7 +1,7 @@
 
 # filesToTree
 
-Provude a __list of file names__:
+Provide a __list of file names__:
   - blog/all.html
   - blog/2036/overflows.html
   
