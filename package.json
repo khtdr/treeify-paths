@@ -4,7 +4,7 @@
   "description": "list of file names becomes a tree of file descriptions",
   "main": "treeify-paths.js",
   "scripts": {
-    "pretest": "tsc lib.ts && mv lib.js treeify-paths.js",
+    "build": "tsc lib.ts && mv lib.js treeify-paths.js",
     "test": "mocha tests.js"
   },
   "repository":"github:khtdr/treeify-paths",
