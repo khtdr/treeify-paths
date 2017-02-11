@@ -1,9 +1,8 @@
 
 # treeify-paths
 
-[![NPM version](https://img.shields.io/npm/v/treeify-paths.svg)](https://www.npmjs.com/package/treeify-paths)
 [![Build Status](https://travis-ci.org/khtdr/treeify-paths.svg?branch=master)](https://travis-ci.org/khtdr/treeify-paths)
-[![npm](https://img.shields.io/npm/l/treeify-paths.svg)]()
+[![NPM version](https://img.shields.io/npm/v/treeify-paths.svg)](https://www.npmjs.com/package/treeify-paths)
 
 Provide a __list of file names__:
   - blog/all.html
