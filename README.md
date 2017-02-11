@@ -112,10 +112,10 @@ console.log(JSON.stringify(treeifyPaths([
 The mocha [tests have many examples](./tests.js)
 
 ```bash
-> treeify-paths@1.0.0 pretest khtdr/treeify-paths
+> treeify-paths@1.0.1 pretest khtdr/treeify-paths
 > tsc lib.ts && mv lib.js treeify-paths.js
 
-> treeify-paths@1.0.0 test khtdr/treeify-paths
+> treeify-paths@1.0.1 test khtdr/treeify-paths
 > mocha tests.js
 
   treeifyPaths([...arguments])
