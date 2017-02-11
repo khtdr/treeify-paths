@@ -5,7 +5,7 @@ Provide a __list of file names__:
   - blog/all.html
   - blog/2036/overflows.html
   
-And recieve a __directory-like tree__
+And recieve a __directory-like tree__:
   - blog
       - all.html
       - 2036
@@ -13,16 +13,18 @@ And recieve a __directory-like tree__
 
 ### Use Cases
 
-Converting a list of file names into a nest UL/LI tree. Nice for site maps, etc.
+Useful when converting a list of file names into a nested UL/LI tree. Nice for site maps, etc.
 
 
 ## Installation:
 
 
-Or install it with NPM if you are using it:
+Install it with NPM:
 ```bash
 npm install --save github:khtdr/filesToTree#v1.0.0
 ```
+This package is not listed in the NPM registery, yet. The command aboves installs from this repository.
+
 ```javascript
 import filesToTree from 'filesToTree';
 ```
