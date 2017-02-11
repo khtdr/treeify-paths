@@ -1,15 +1,20 @@
 
 # filesToTree
 
-Provde a list of file names:
+Provude a __list of file names__:
   - blog/all.html
   - blog/2036/overflows.html
   
-And recieve a directory-like tree
+And recieve a __directory-like tree__
   - blog
       - all.html
       - 2036
           - overflows.html
+
+### Use Cases
+
+Converting a list of file names into a nest UL/LI tree. Nice for site maps, etc.
+
 
 ## Installation:
 
