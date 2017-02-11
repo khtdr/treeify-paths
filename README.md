@@ -2,6 +2,12 @@
 # filesToTree
 
 ## Installation:
+
+Install the source by downloading it and including it in your project:
+```bash
+curl -o filesToTree "https://raw.githubusercontent.com/khtdr/filesToTree/master/filesToTree.js"
+```
+Or install it with NPM if you are using it:
 ```bash
 npm install --save github:khtdr/filesToTree#v1.0.0
 ```
