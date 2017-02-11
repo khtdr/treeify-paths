@@ -2,6 +2,7 @@
 # treeify-paths
 
 [![NPM version](https://img.shields.io/npm/v/treeify-paths.svg)](https://www.npmjs.com/package/treeify-paths)
+[![Travis](https://img.shields.io/travis/khtdr/treeify-paths.svg)]()
 [![npm](https://img.shields.io/npm/l/treeify-paths.svg)]()
 
 Provide a __list of file names__:
