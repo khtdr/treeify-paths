@@ -18,6 +18,8 @@ And recieve a __directory-like tree__:
 
 Useful when converting a list of file names into a nested UL/LI tree. Nice for site maps, etc.
 
+  - [Live example](https://runkit.com/khtdr/treeify-paths)
+  - [Download example](https://runkit.com/downloads/khtdr/treeify-paths/1.0.0.zip)
 
 ## Installation:
 
