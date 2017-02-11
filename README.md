@@ -1,5 +1,5 @@
 
-# filesToTree
+# paths-to-tree
 
 Provide a __list of file names__:
   - blog/all.html
@@ -21,31 +21,29 @@ Useful when converting a list of file names into a nested UL/LI tree. Nice for s
 
 Install it with NPM:
 ```bash
-npm install --save github:khtdr/filesToTree#v1.0.0
-```
-This package is not listed in the NPM registery, yet. The command aboves installs from this repository.
+npm install --save paths-to-tree
 
 ```javascript
-import filesToTree from 'filesToTree';
+import pathsToTree from 'paths-to-tree';
 ```
 
-If you are not using NPM, install the library by downloading the [source file](https://raw.githubusercontent.com/khtdr/filesToTree/master/filesToTree.js) and including it in your project:
+If you are not using NPM, install the library by downloading the [source file](https://raw.githubusercontent.com/khtdr/paths-to-tree/master/paths-to-tree.js) and including it in your project:
 ```bash
-curl -o filesToTree "https://raw.githubusercontent.com/khtdr/filesToTree/master/filesToTree.js"
+curl -o paths-to-tree.js "https://raw.githubusercontent.com/khtdr/paths-to-tree/master/paths-to-tree.js"
 ```
 ```javascript
-let filesToTree = require('./filesToTree').default;
+let paths_to_tree = require('./paths-to-tree').default;
 ```
 
 ## Usage:
 
-This module provides a function `filesToTree` that takes a list of file names and returns a directory-like tree.
+This module provides a function `pathsToTree` that takes a list of file names and returns a directory-like tree.
 
 
 ### the following script:
 ```javascript
-import filesToTree from 'filesToTree';
-console.log(JSON.stringify(filesToTree([
+import pathsToTree from 'paths-to-tree';
+console.log(JSON.stringify(pathsToTree([
   'about.html',
   'careers',
   'careers/job-1.html',
@@ -103,21 +101,18 @@ console.log(JSON.stringify(filesToTree([
 ```
 
 
-## DOCs
+## Testing
 
 The mocha [tests have many examples](./tests.js)
 
 ```bash
-> file-tree@1.0.0 pretest khtdr/file-tree
-> tsc lib.ts && mv lib.js index.js
+> paths-to-tree@1.0.0 pretest khtdr/paths-to-tree
+> tsc lib.ts && mv lib.js paths-to-tree.js
 
-
-> file-tree@1.0.0 test khtdr/file-tree
+> paths-to-tree@1.0.0 test khtdr/paths-to-tree
 > mocha tests.js
 
-
-
-  filesToTree([...arguments])
+  pathsToTree([...arguments])
     arguments: none
       ✓ should return an empty object
     arguments: empty list
@@ -130,7 +125,5 @@ The mocha [tests have many examples](./tests.js)
       ✓ should alphabetize
       ✓ should ignore duplicates
 
-
-  7 passing (9ms)
-
+  7 passing (8ms)
 ```
