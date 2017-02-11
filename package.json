@@ -1,13 +1,13 @@
 {
-  "name": "filesToTree",
+  "name": "paths-to-tree",
   "version": "1.0.0",
   "description": "list of file names becomes a tree of file descriptions",
-  "main": "filesToTree.js",
+  "main": "paths-to-tree.js",
   "scripts": {
-    "pretest": "tsc lib.ts && mv lib.js filesToTree.js",
+    "pretest": "tsc lib.ts && mv lib.js paths-to-tree.js",
     "test": "mocha tests.js"
   },
-  "repository":"github.com:khtdr/filesToTree.git",
+  "repository":"github.com:khtdr/paths-to-tree.git",
   "author": "oh kay",
   "license": "MIT",
   "devDependencies": {
