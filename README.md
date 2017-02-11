@@ -1,6 +1,9 @@
 
 # paths-to-tree
 
+[![NPM version](https://img.shields.io/npm/v/paths-to-tree.svg)](https://www.npmjs.com/package/paths-to-tree)
+[![npm](https://img.shields.io/npm/l/paths-to-tree.svg)]()
+
 Provide a __list of file names__:
   - blog/all.html
   - blog/2036/overflows.html

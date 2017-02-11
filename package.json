@@ -7,7 +7,7 @@
     "pretest": "tsc lib.ts && mv lib.js paths-to-tree.js",
     "test": "mocha tests.js"
   },
-  "repository":"github.com:khtdr/paths-to-tree.git",
+  "repository":"github:khtdr/paths-to-tree",
   "author": "oh kay",
   "license": "MIT",
   "devDependencies": {
