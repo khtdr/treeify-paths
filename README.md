@@ -3,16 +3,27 @@
 
 ## Installation:
 
-Install the source by downloading it and including it in your project:
-```bash
-curl -o filesToTree "https://raw.githubusercontent.com/khtdr/filesToTree/master/filesToTree.js"
-```
+
 Or install it with NPM if you are using it:
 ```bash
 npm install --save github:khtdr/filesToTree#v1.0.0
 ```
+```javascript
+import filesToTree from 'filesToTree';
+```
+
+If you are not using NPM, install the library by downloading the [source file](https://raw.githubusercontent.com/khtdr/filesToTree/master/filesToTree.js) and including it in your project:
+```bash
+curl -o filesToTree "https://raw.githubusercontent.com/khtdr/filesToTree/master/filesToTree.js"
+```
+```javascript
+let filesToTree = require('./filesToTree').default;
+```
 
 ## Usage:
+
+This module provides a function `filesToTree` that takes a list of file names and returns a directory-like tree.
+
 
 ### the following script:
 ```javascript
