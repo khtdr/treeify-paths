@@ -1,6 +1,16 @@
 
 # filesToTree
 
+Provde a list of file names:
+  - blog/all.html
+  - blog/2036/overflows.html
+  
+And recieve a directory-like tree
+  - blog
+      - all.html
+      - 2036
+          - overflows.html
+
 ## Installation:
 
 
