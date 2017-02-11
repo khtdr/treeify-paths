@@ -2,7 +2,6 @@
 # treeify-paths
 
 [![NPM version](https://img.shields.io/npm/v/treeify-paths.svg)](https://www.npmjs.com/package/treeify-paths)
-[![Travis](https://img.shields.io/travis/khtdr/treeify-paths.svg)]()
 [![Build Status](https://travis-ci.org/khtdr/treeify-paths.svg?branch=master)](https://travis-ci.org/khtdr/treeify-paths)
 [![npm](https://img.shields.io/npm/l/treeify-paths.svg)]()
 
