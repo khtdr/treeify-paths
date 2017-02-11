@@ -10,14 +10,14 @@ var Node = (function () {
 }());
 exports.Node = Node;
 ;
-function fill(node, files) {
+function fill(node, paths) {
     var cMap = {};
-    files.forEach(function (file) {
+    paths.forEach(function (file) {
         var parts = file.split('/');
         if (!cMap[parts[0]]) {
             var fullPath = node.path + '/' + parts[0];
             cMap[parts[0]] = {
-                files: [],
+                paths: [],
                 obj: new Node(fullPath.replace(/^\//, ''))
             };
         }
@@ -27,20 +27,20 @@ function fill(node, files) {
         else {
             var dir = parts.shift();
             var rest = parts.join('/');
-            cMap[dir].files.push(rest);
+            cMap[dir].paths.push(rest);
         }
     });
     var keys = Object.keys(cMap);
     keys.sort();
     keys.forEach(function (key) {
-        fill(cMap[key].obj, cMap[key].files);
+        fill(cMap[key].obj, cMap[key].paths);
         node.children.push(cMap[key].obj);
     });
     return node;
 }
-function filesToTree(files) {
-    if (files === void 0) { files = []; }
-    return fill(new Node, files);
+function pathsToTree(paths) {
+    if (paths === void 0) { paths = []; }
+    return fill(new Node, paths);
 }
 exports.__esModule = true;
-exports["default"] = filesToTree;
+exports["default"] = pathsToTree;

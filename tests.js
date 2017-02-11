@@ -1,6 +1,6 @@
 
 const assert = require('assert');
-const filesToTree = require('.').default;
+const pathsToTree = require('.').default;
 const Node = require('.').Node;
 
 function match (value, shape) {
@@ -16,11 +16,11 @@ function match (value, shape) {
   }
 }
 
-describe('filesToTree([...arguments])', () => {
+describe('pathsToTree([...arguments])', () => {
 
   describe('arguments: none', () => {
     it('should return an empty object', () => {
-      match(filesToTree(), {
+      match(pathsToTree(), {
         constructor:Node, children:[]
       });
     });
@@ -28,7 +28,7 @@ describe('filesToTree([...arguments])', () => {
 
   describe('arguments: empty list', () => {
     it('should return an empty object', () => {
-      match(filesToTree([]), {
+      match(pathsToTree([]), {
         constructor:Node, children:[]
       });
     });
@@ -36,7 +36,7 @@ describe('filesToTree([...arguments])', () => {
 
   describe('arguments: list with a single file', () => {
     it('should return a single file', () => {
-      match(filesToTree([ 'index' ]), {
+      match(pathsToTree([ 'index' ]), {
         constructor:Node,
         children:[
           { name: 'index',
@@ -47,7 +47,7 @@ describe('filesToTree([...arguments])', () => {
       });
     });
     it('should return with nested children', () => {
-      match(filesToTree([ 'path/to/index' ]), {
+      match(pathsToTree([ 'path/to/index' ]), {
         constructor:Node,
         children:[{ name: ''
                   , path: 'path'
@@ -68,7 +68,7 @@ describe('filesToTree([...arguments])', () => {
 
   describe('arguments: multiple file names', () => {
     it('should return with nested children', () => {
-      match(filesToTree([ 'path', 'path/to/index', 'x/y/z', 'path/here' ]), {
+      match(pathsToTree([ 'path', 'path/to/index', 'x/y/z', 'path/here' ]), {
         constructor:Node,
         children:[{ name: 'path'
                   , path: 'path'
@@ -104,7 +104,7 @@ describe('filesToTree([...arguments])', () => {
       });
     });
     it('should alphabetize', () => {
-      match(filesToTree([ 'd', 'a', 'b/c', 'b/b/b', 'b/a', 'c/d', 'b' ]), {
+      match(pathsToTree([ 'd', 'a', 'b/c', 'b/b/b', 'b/a', 'c/d', 'b' ]), {
         constructor:Node,
         children:[{ name: 'a'
                   , path: 'a'
@@ -151,7 +151,7 @@ describe('filesToTree([...arguments])', () => {
       });
     });
     it('should ignore duplicates', () => {
-      match(filesToTree(['a', 'a', 'a']), {
+      match(pathsToTree(['a', 'a', 'a']), {
         constructor:Node,
         children:[{ name: 'a'
                   , path: 'a'
