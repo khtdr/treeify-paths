@@ -36,7 +36,7 @@ function fill (node:Node, paths:string[]) {
 }
 
 
-export default function pathsToTree (paths: string[] = []): Node {
+export default function treeifyPaths (paths: string[] = []): Node {
   return fill(new Node, paths);
 }
 

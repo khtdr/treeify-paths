@@ -1,13 +1,13 @@
 {
-  "name": "paths-to-tree",
+  "name": "treeify-paths",
   "version": "1.0.0",
   "description": "list of file names becomes a tree of file descriptions",
-  "main": "paths-to-tree.js",
+  "main": "treeify-paths.js",
   "scripts": {
-    "pretest": "tsc lib.ts && mv lib.js paths-to-tree.js",
+    "pretest": "tsc lib.ts && mv lib.js treeify-paths.js",
     "test": "mocha tests.js"
   },
-  "repository":"github:khtdr/paths-to-tree",
+  "repository":"github:khtdr/treeify-paths",
   "author": "oh kay",
   "license": "MIT",
   "devDependencies": {

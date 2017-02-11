@@ -1,8 +1,8 @@
 
-# paths-to-tree
+# treeify-paths
 
-[![NPM version](https://img.shields.io/npm/v/paths-to-tree.svg)](https://www.npmjs.com/package/paths-to-tree)
-[![npm](https://img.shields.io/npm/l/paths-to-tree.svg)]()
+[![NPM version](https://img.shields.io/npm/v/treeify-paths.svg)](https://www.npmjs.com/package/treeify-paths)
+[![npm](https://img.shields.io/npm/l/treeify-paths.svg)]()
 
 Provide a __list of file names__:
   - blog/all.html
@@ -24,29 +24,29 @@ Useful when converting a list of file names into a nested UL/LI tree. Nice for s
 
 Install it with NPM:
 ```bash
-npm install --save paths-to-tree
+npm install --save treeify-paths
 
 ```javascript
-import pathsToTree from 'paths-to-tree';
+import treeifyPaths from 'treeify-paths';
 ```
 
-If you are not using NPM, install the library by downloading the [source file](https://raw.githubusercontent.com/khtdr/paths-to-tree/master/paths-to-tree.js) and including it in your project:
+If you are not using NPM, install the library by downloading the [source file](https://raw.githubusercontent.com/khtdr/treeify-paths/master/treeify-paths.js) and including it in your project:
 ```bash
-curl -o paths-to-tree.js "https://raw.githubusercontent.com/khtdr/paths-to-tree/master/paths-to-tree.js"
+curl -o treeify-paths.js "https://raw.githubusercontent.com/khtdr/treeify-paths/master/treeify-paths.js"
 ```
 ```javascript
-let paths_to_tree = require('./paths-to-tree').default;
+let treeify_paths = require('./treeify-paths').default;
 ```
 
 ## Usage:
 
-This module provides a function `pathsToTree` that takes a list of file names and returns a directory-like tree.
+This module provides a function `treeifyPaths` that takes a list of file names and returns a directory-like tree.
 
 
 ### the following script:
 ```javascript
-import pathsToTree from 'paths-to-tree';
-console.log(JSON.stringify(pathsToTree([
+import treeifyPaths from 'treeify-paths';
+console.log(JSON.stringify(treeifyPaths([
   'about.html',
   'careers',
   'careers/job-1.html',
@@ -109,13 +109,13 @@ console.log(JSON.stringify(pathsToTree([
 The mocha [tests have many examples](./tests.js)
 
 ```bash
-> paths-to-tree@1.0.0 pretest khtdr/paths-to-tree
-> tsc lib.ts && mv lib.js paths-to-tree.js
+> treeify-paths@1.0.0 pretest khtdr/treeify-paths
+> tsc lib.ts && mv lib.js treeify-paths.js
 
-> paths-to-tree@1.0.0 test khtdr/paths-to-tree
+> treeify-paths@1.0.0 test khtdr/treeify-paths
 > mocha tests.js
 
-  pathsToTree([...arguments])
+  treeifyPaths([...arguments])
     arguments: none
       ✓ should return an empty object
     arguments: empty list

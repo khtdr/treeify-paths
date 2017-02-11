@@ -38,9 +38,9 @@ function fill(node, paths) {
     });
     return node;
 }
-function pathsToTree(paths) {
+function treeifyPaths(paths) {
     if (paths === void 0) { paths = []; }
     return fill(new Node, paths);
 }
 exports.__esModule = true;
-exports["default"] = pathsToTree;
+exports["default"] = treeifyPaths;
