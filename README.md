@@ -3,6 +3,9 @@
 
 [![Build Status](https://travis-ci.org/khtdr/treeify-paths.svg?branch=master)](https://travis-ci.org/khtdr/treeify-paths)
 [![NPM version](https://img.shields.io/npm/v/treeify-paths.svg)](https://www.npmjs.com/package/treeify-paths)
+[![npm](https://img.shields.io/npm/dm/treeify-paths.svg)]()
+[![npm](https://img.shields.io/npm/dt/treeify-paths.svg)]()
+
 
 Provide a __list of file names__:
   - blog/all.html
