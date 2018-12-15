@@ -1,5 +1,6 @@
 "use strict";
-var Node = (function () {
+exports.__esModule = true;
+var Node = /** @class */ (function () {
     function Node(path) {
         if (path === void 0) { path = ''; }
         this.path = path;
@@ -42,5 +43,4 @@ function treeifyPaths(paths) {
     if (paths === void 0) { paths = []; }
     return fill(new Node, paths);
 }
-exports.__esModule = true;
 exports["default"] = treeifyPaths;
