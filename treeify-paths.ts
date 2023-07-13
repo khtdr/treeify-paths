@@ -15,13 +15,13 @@ function fill(
 ) {
   const children: Record<string, { paths: PathContexts; obj: PathTree }> = {};
   paths.forEach(([file, ctx]) => {
-    const parts = file.split("/");
+    const parts = stripSlashes(file).split("/");
     const dir = parts[0];
     if (!children[dir]) {
       const fullPath = `${node.path}/${parts[0]}`;
       children[dir] = {
         paths: [],
-        obj: new PathTree(fullPath.replace(/^\//, "")),
+        obj: new PathTree(stripSlashes(fullPath)),
       };
     }
     if (parts.length == 1) {
@@ -41,8 +41,10 @@ function fill(
     );
   else keys.sort();
   keys.forEach((key) => {
-    fill(children[key].obj, children[key].paths, options);
-    node.children.push(children[key].obj);
+    const child = children[key].obj
+    fill(child, children[key].paths, options);
+    if (child.name || child.path || child.children.length)
+      node.children.push(child);
   });
   if (options.directoriesFirst)
     node.children.sort((a, b) => {
@@ -79,6 +81,10 @@ export function treeifyPaths<Ctx>(
 
 export default treeifyPaths;
 
-function isPaths(data: Paths | PathContexts): data is Paths {
-  return typeof data[0] === "string";
-}
+const stripSlashes = (path: string) =>
+  path
+    .replace(/^\/*/, "")
+    .replace(/\/*$/, "");
+
+const isPaths = (data: Paths | PathContexts): data is Paths =>
+  typeof data[0] === "string";

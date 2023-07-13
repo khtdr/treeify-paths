@@ -41,6 +41,12 @@ describe("treeifyPaths([...arguments])", () => {
         children: [{ name: "index", path: "index", constructor: PathTree }],
       });
     });
+    it("should ignore leading slashes", () => {
+      match(treeifyPaths(["/index"]), {
+        constructor: PathTree,
+        children: [{ name: "index", path: "index", constructor: PathTree }],
+      });
+    });
     it("should return with nested children", () => {
       match(treeifyPaths(["path/to/index"]), {
         constructor: PathTree,
@@ -122,6 +128,12 @@ describe("treeifyPaths([...arguments])", () => {
             ],
           },
         ],
+      });
+    });
+    it("should ignore perimeter slashes and empty or redundant entries", () => {
+      match(treeifyPaths(["/","/index/", "", "/index"]), {
+        constructor: PathTree,
+        children: [{ name: "index", path: "index", constructor: PathTree }],
       });
     });
     it("should alphabetize", () => {

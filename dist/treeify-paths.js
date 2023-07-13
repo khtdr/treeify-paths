@@ -14,7 +14,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.treeifyPaths = exports.Node = exports.PathTree = void 0;
 var PathTree = /** @class */ (function () {
     function PathTree(path) {
@@ -40,13 +40,13 @@ function fill(node, paths, options) {
     var children = {};
     paths.forEach(function (_a) {
         var file = _a[0], ctx = _a[1];
-        var parts = file.split("/");
+        var parts = stripSlashes(file).split("/");
         var dir = parts[0];
         if (!children[dir]) {
             var fullPath = "".concat(node.path, "/").concat(parts[0]);
             children[dir] = {
                 paths: [],
-                obj: new PathTree(fullPath.replace(/^\//, ""))
+                obj: new PathTree(stripSlashes(fullPath)),
             };
         }
         if (parts.length == 1) {
@@ -68,8 +68,10 @@ function fill(node, paths, options) {
     else
         keys.sort();
     keys.forEach(function (key) {
-        fill(children[key].obj, children[key].paths, options);
-        node.children.push(children[key].obj);
+        var child = children[key].obj;
+        fill(child, children[key].paths, options);
+        if (child.name || child.path || child.children.length)
+            node.children.push(child);
     });
     if (options.directoriesFirst)
         node.children.sort(function (a, b) {
@@ -98,7 +100,12 @@ function treeifyPaths(paths, options) {
     return fill(new PathTree(), pathCtxs, options);
 }
 exports.treeifyPaths = treeifyPaths;
-exports["default"] = treeifyPaths;
-function isPaths(data) {
+exports.default = treeifyPaths;
+var stripSlashes = function (path) {
+    return path
+        .replace(/^\/*/, "")
+        .replace(/\/*$/, "");
+};
+var isPaths = function (data) {
     return typeof data[0] === "string";
-}
+};

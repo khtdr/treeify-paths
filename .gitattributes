@@ -1,2 +1,3 @@
 dist/treeify-paths.js  linguist-generated
 dist/treeify-paths.d.ts linguist-generated
+tests.js linguist-documentation
