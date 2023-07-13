@@ -1,13 +1,14 @@
 {
   "name": "treeify-paths",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "list of file names becomes a tree of file descriptions",
   "main": "dist/treeify-paths.js",
   "scripts": {
-    "build": "tsc --outDir dist treeify-paths.ts",
+    "build": "tsc --declaration true --outDir dist treeify-paths.ts",
+    "pretest": "npm run build",
     "test": "mocha tests.js",
     "clean": "rimraf dist/*",
-    "dev": "concurrently 'yarn run build -w' 'yarn run test -w'"
+    "dev": "concurrently 'npm run build -- -w' 'npm run test -- -w'"
   },
   "repository": "github:khtdr/treeify-paths",
   "author": "oh kay",
