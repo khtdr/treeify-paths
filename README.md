@@ -166,14 +166,16 @@ The mocha [tests have many examples](./tests.js)
       ✔ should return an empty object
     arguments: list with a single file
       ✔ should return a single file
+      ✔ should ignore leading slashes
       ✔ should return with nested children
     arguments: multiple file names
       ✔ should return with nested children
+      ✔ should ignore perimeter slashes and empty or redundant entries
       ✔ should alphabetize
       ✔ should alphabetize case-sensitve
       ✔ should not respect directories
       ✔ should ignore duplicates
       ✔ should be able to target directories
 
-  10 passing (11ms)
+  12 passing (7ms)
 ```
