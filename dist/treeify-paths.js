@@ -15,7 +15,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
-exports.Node = exports.PathTree = void 0;
+exports.treeifyPaths = exports.Node = exports.PathTree = void 0;
 var PathTree = /** @class */ (function () {
     function PathTree(path) {
         if (path === void 0) { path = ""; }
@@ -37,29 +37,30 @@ var Node = /** @class */ (function (_super) {
 exports.Node = Node;
 function fill(node, paths, options) {
     if (options === void 0) { options = {}; }
-    var cMap = {};
+    var children = {};
     paths.forEach(function (_a) {
         var file = _a[0], ctx = _a[1];
         var parts = file.split("/");
-        if (!cMap[parts[0]]) {
-            var fullPath = node.path + "/" + parts[0];
-            cMap[parts[0]] = {
+        var dir = parts[0];
+        if (!children[dir]) {
+            var fullPath = "".concat(node.path, "/").concat(parts[0]);
+            children[dir] = {
                 paths: [],
                 obj: new PathTree(fullPath.replace(/^\//, ""))
             };
         }
         if (parts.length == 1) {
-            cMap[parts[0]].obj.name = parts[0];
-            cMap[parts[0]].obj.ctx = ctx;
+            children[dir].obj.name = dir;
+            children[dir].obj.ctx = ctx;
         }
         else {
-            var dir = parts.shift();
+            parts.shift();
             var rest = parts.join("/");
-            cMap[dir].paths.push([rest, ctx]);
-            cMap[dir].obj.ctx = ctx;
+            children[dir].paths.push([rest, ctx]);
+            children[dir].obj.ctx = ctx;
         }
     });
-    var keys = Object.keys(cMap);
+    var keys = Object.keys(children);
     if (options.caseInsensitive)
         keys.sort(function (a, b) {
             return a.toLocaleLowerCase().localeCompare(b.toLocaleLowerCase());
@@ -67,8 +68,8 @@ function fill(node, paths, options) {
     else
         keys.sort();
     keys.forEach(function (key) {
-        fill(cMap[key].obj, cMap[key].paths, options);
-        node.children.push(cMap[key].obj);
+        fill(children[key].obj, children[key].paths, options);
+        node.children.push(children[key].obj);
     });
     if (options.directoriesFirst)
         node.children.sort(function (a, b) {
@@ -96,6 +97,7 @@ function treeifyPaths(paths, options) {
         : paths;
     return fill(new PathTree(), pathCtxs, options);
 }
+exports.treeifyPaths = treeifyPaths;
 exports["default"] = treeifyPaths;
 function isPaths(data) {
     return typeof data[0] === "string";

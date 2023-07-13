@@ -13,35 +13,36 @@ function fill(
   paths: PathContexts,
   options: Partial<Options> = {}
 ) {
-  let cMap: Record<string, { paths: PathContexts; obj: PathTree }> = {};
+  const children: Record<string, { paths: PathContexts; obj: PathTree }> = {};
   paths.forEach(([file, ctx]) => {
-    let parts = file.split("/");
-    if (!cMap[parts[0]]) {
-      let fullPath = node.path + "/" + parts[0];
-      cMap[parts[0]] = {
+    const parts = file.split("/");
+    const dir = parts[0];
+    if (!children[dir]) {
+      const fullPath = `${node.path}/${parts[0]}`;
+      children[dir] = {
         paths: [],
         obj: new PathTree(fullPath.replace(/^\//, "")),
       };
     }
     if (parts.length == 1) {
-      cMap[parts[0]].obj.name = parts[0];
-      cMap[parts[0]].obj.ctx = ctx;
+      children[dir].obj.name = dir;
+      children[dir].obj.ctx = ctx;
     } else {
-      let dir = parts.shift();
-      let rest = parts.join("/");
-      cMap[dir].paths.push([rest, ctx]);
-      cMap[dir].obj.ctx = ctx;
+      parts.shift();
+      const rest = parts.join("/");
+      children[dir].paths.push([rest, ctx]);
+      children[dir].obj.ctx = ctx;
     }
   });
-  let keys = Object.keys(cMap);
+  const keys = Object.keys(children);
   if (options.caseInsensitive)
     keys.sort((a, b) =>
       a.toLocaleLowerCase().localeCompare(b.toLocaleLowerCase())
     );
   else keys.sort();
   keys.forEach((key) => {
-    fill(cMap[key].obj, cMap[key].paths, options);
-    node.children.push(cMap[key].obj);
+    fill(children[key].obj, children[key].paths, options);
+    node.children.push(children[key].obj);
   });
   if (options.directoriesFirst)
     node.children.sort((a, b) => {
@@ -58,15 +59,15 @@ function fill(
   return node;
 }
 
-type Paths = string[];
-type PathContexts<Ctx = any> = [string, Ctx][];
-type Options = {
+export type Paths = string[];
+export type PathContexts<Ctx = any> = [string, Ctx][];
+export type Options = {
   caseInsensitive: boolean;
   directoriesFirst: boolean;
   directoriesLast: boolean;
 };
 
-export default function treeifyPaths<Ctx>(
+export function treeifyPaths<Ctx>(
   paths: Paths | PathContexts<Ctx> = [],
   options: Partial<Options> = {}
 ): PathTree<Ctx> {
@@ -75,6 +76,8 @@ export default function treeifyPaths<Ctx>(
     : paths;
   return fill(new PathTree(), pathCtxs, options);
 }
+
+export default treeifyPaths;
 
 function isPaths(data: Paths | PathContexts): data is Paths {
   return typeof data[0] === "string";
