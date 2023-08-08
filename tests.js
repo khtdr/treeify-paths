@@ -282,7 +282,7 @@ describe("treeifyPaths([...arguments])", () => {
         ],
       });
       match(
-        treeifyPaths(["a-file.txt", "b/another.txt"], {
+        treeifyPaths(["a-file.txt", "b/bnother.txt", "b/another.txt"], {
           directoriesFirst: true,
         }),
         {
@@ -296,6 +296,12 @@ describe("treeifyPaths([...arguments])", () => {
                 {
                   name: "another.txt",
                   path: "b/another.txt",
+                  constructor: PathTree,
+                  children: [],
+                },
+                {
+                  name: "bnother.txt",
+                  path: "b/bnother.txt",
                   constructor: PathTree,
                   children: [],
                 },

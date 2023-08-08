@@ -14,5 +14,5 @@ export type Options = {
     directoriesFirst: boolean;
     directoriesLast: boolean;
 };
-export declare function treeifyPaths<Ctx>(paths?: Paths | PathContexts<Ctx>, options?: Partial<Options>): PathTree<Ctx>;
+export declare function treeifyPaths<Ctx = undefined>(paths?: Paths | PathContexts<Ctx>, options?: Partial<Options>): PathTree<Ctx>;
 export default treeifyPaths;

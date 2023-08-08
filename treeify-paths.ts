@@ -1,12 +1,12 @@
 export class PathTree<T = any> {
   declare ctx: T;
-  constructor(public path: string = "") {}
+  constructor(public path: string = "") { }
   name: string = "";
   children: PathTree[] = [];
 }
 
 // Legacy
-export class Node extends PathTree {}
+export class Node extends PathTree { }
 
 function fill(
   node: PathTree,
@@ -50,13 +50,13 @@ function fill(
     node.children.sort((a, b) => {
       if (a.children.length && !b.children.length) return -1;
       if (b.children.length && !a.children.length) return 1;
-      return -1;
+      return 0;
     });
   else if (options.directoriesLast)
     node.children.sort((a, b) => {
       if (a.children.length && !b.children.length) return 1;
       if (b.children.length && !a.children.length) return -1;
-      return -1;
+      return 0;
     });
   return node;
 }
@@ -69,7 +69,7 @@ export type Options = {
   directoriesLast: boolean;
 };
 
-export function treeifyPaths<Ctx>(
+export function treeifyPaths<Ctx = undefined>(
   paths: Paths | PathContexts<Ctx> = [],
   options: Partial<Options> = {}
 ): PathTree<Ctx> {
@@ -88,3 +88,8 @@ const stripSlashes = (path: string) =>
 
 const isPaths = (data: Paths | PathContexts): data is Paths =>
   typeof data[0] === "string";
+
+
+// uncomment to test typescript completion
+// const ctxtree = treeifyPaths([["a.txt", { foo: 'bar' }]])
+// const tree = treeifyPaths(["a.txt"])

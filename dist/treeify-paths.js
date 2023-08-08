@@ -79,7 +79,7 @@ function fill(node, paths, options) {
                 return -1;
             if (b.children.length && !a.children.length)
                 return 1;
-            return -1;
+            return 0;
         });
     else if (options.directoriesLast)
         node.children.sort(function (a, b) {
@@ -87,7 +87,7 @@ function fill(node, paths, options) {
                 return 1;
             if (b.children.length && !a.children.length)
                 return -1;
-            return -1;
+            return 0;
         });
     return node;
 }
@@ -109,3 +109,6 @@ var stripSlashes = function (path) {
 var isPaths = function (data) {
     return typeof data[0] === "string";
 };
+// uncomment to test typescript completion
+// const ctxtree = treeifyPaths([["a.txt", { foo: 'bar' }]])
+// const tree = treeifyPaths(["a.txt"])
